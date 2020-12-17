@@ -42,9 +42,8 @@ public class TravelBot extends TelegramLongPollingBot {
     public void onUpdateReceived(Update update) {
         if (update.getMessage().getText().equals("/start")) {
             SendMessage message = new SendMessage().setChatId(update.getMessage().getChatId());
-            message.setText("Hello! \n" +
-                    "I am a bot for sights in cities around the world.\n" +
-                    "To start communication with me please enter the name of the city.");
+            message.setText("Привет \n" +
+                    "Введи город и получи о нем информацию.");
             try {
                 execute(message);
             } catch (TelegramApiException e) {
@@ -70,7 +69,7 @@ public class TravelBot extends TelegramLongPollingBot {
         } catch (NoSuchElementException e) {
             SendMessage exception = new SendMessage();
             exception.setChatId(update.getMessage().getChatId());
-            exception.setText("This city doesn't exist");
+            exception.setText("Такого города нет :(");
             execute(exception);
         }
     }

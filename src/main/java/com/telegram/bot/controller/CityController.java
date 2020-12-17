@@ -26,11 +26,6 @@ public class CityController {
         this.cityService = cityService;
     }
 
-//    @RequestMapping(value = "/", method = RequestMethod.POST)
-//    public void onUpdateReceived(@RequestBody Update update) {
-//        travelBot.onUpdateReceived(update);
-//    }
-
     @GetMapping("/all")
     public ResponseEntity<List<City>> getAll() {
 
